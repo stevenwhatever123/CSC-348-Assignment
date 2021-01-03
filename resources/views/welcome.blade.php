@@ -105,7 +105,6 @@
                 @endif
 
                 <br>
-                <br>
 
                 @if (Route::has('login'))
                 <div class="links">
