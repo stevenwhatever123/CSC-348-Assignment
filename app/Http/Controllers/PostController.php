@@ -177,4 +177,16 @@ class PostController extends Controller
 
         return view('newsfeed.show', ['post' => $post, 'likes' => $likes]);
     }
+
+    public function createPost(){
+
+        app()->bind('post', function ($app){
+            return new Post();
+        });
+
+        $t = app()->make('post');
+
+        dd($t);
+
+    }
 }

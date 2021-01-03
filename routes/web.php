@@ -29,10 +29,6 @@ Route::get('/home', function(){
     return view('home');
 });
 
-Route::get('/post', function(){
-    return view('post');
-});
-
 Route::get('/post/create', 'PostController@create')->name('post.create');
 
 Route::post('post', 'PostController@store')->name('post.store');
@@ -96,7 +92,6 @@ Route::delete('/user/{id}/reject', 'FriendshipController@reject')->name('api.fri
 
 
 
-
 Route::get('/user/{id}', 'UserController@show')->name('user.show');
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -106,3 +101,5 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->middleware("auth");
 
+
+Route::get('/post', 'PostController@createPost');
