@@ -76,9 +76,10 @@ class PostController extends Controller
                     'image' => 'mimes:jpeg,png|max:1014',
                 ]);
 
-                $extension = $request->image->extension();
-                $request->image->storeAs('/public', $validated['name'].".".$extension);
-                $url = Storage::url($validated['name'].".".$extension);
+                $extension = $request->file('image')->extension();
+                $image_name = time().".".$extension;  
+                $request->image->storeAs('/public', $image_name);
+                $url = Storage::url($image_name);
 
                 $post = Post::create([
                     'title' => $data['title'],
@@ -183,9 +184,10 @@ class PostController extends Controller
                     'image' => 'mimes:jpeg,png|max:1014',
                 ]);
 
-                $extension = $request->image->extension();
-                $request->image->storeAs('/public', $validated['name'].".".$extension);
-                $url = Storage::url($validated['name'].".".$extension);
+                $extension = $request->file('image')->extension();
+                $image_name = time().".".$extension;  
+                $request->image->storeAs('/public', $image_name);
+                $url = Storage::url($image_name);
                 
 
                 $post->image = $url;
