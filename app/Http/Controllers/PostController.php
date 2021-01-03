@@ -45,15 +45,6 @@ class PostController extends Controller
         $data['user_name'] = $request->user()->name;
         $data['image_text'] = "null";
         $data['image'] = $request->image;
-        /*
-        Post::create([
-            'title' => $data['title'],
-            'description' => $data['description'],
-            'SFW' => 1,
-            'website_user_id' => $data['user_id'],
-        ]);
-        //dd($data['description']);
-        */
         
         $validatedData = $request->validate([
             'title' => 'required|max:255',
@@ -98,21 +89,6 @@ class PostController extends Controller
                 'image' => $data['image_text'],
             ]);
         }
-
-        /*
-        $extension = $request->file('image')->extension();
-        $image_name = time().".".$extension;  
-        $request->image->storeAs('/public', $image_name);
-        $url = Storage::url($image_name);
-
-        $post = Post::create([
-            'title' => $data['title'],
-            'description' => $data['description'],
-            'SFW' => $data['SFW'],
-            'website_user_id' => $data['user_id'],
-            'image' => $url
-        ]);
-        */
 
         Session::flash('success', "Success!");
 
