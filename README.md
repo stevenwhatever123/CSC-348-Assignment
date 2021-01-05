@@ -1,2 +1,2 @@
 # CSC-348-Assignment
- This is my repository for my csc-348 assignment
+ This is my CSC-348 Web Application Development assignment
